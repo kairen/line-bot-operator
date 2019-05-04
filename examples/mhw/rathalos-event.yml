@@ -1,0 +1,26 @@
+apiVersion: line.you/v1alpha1
+kind: Event
+metadata:
+  name: rathalos-monster-event
+  labels:
+    hunter: monster
+spec:
+  selector: # eventbinding selector
+    matchLabels:
+      hunter: monster
+  type: message
+  messages:
+  - type: text
+    fuzzy: false
+    keywords:
+    - 火龍
+    - Rathalos
+    reply: |
+      由於會在上空盤發動各種攻擊，最好利用閃光投射器令其跌回地上，在地上進行狩獵對獵人有十分大的優勢。另外只要破壞翅膀，起飛時似乎會產生破綻了。
+
+      [斬]頭>尾/翼 
+      [打]頭>尾/翼 
+      [彈]頭>尾/翼 
+      [弱點屬性]火x 水△ 雷○ 冰△ 龍◎
+
+      P.S. ◎＞○＞△＞×＞無効，斬/打/彈的弱點以左邊為最有效

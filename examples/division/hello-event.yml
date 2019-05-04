@@ -1,0 +1,18 @@
+apiVersion: line.you/v1alpha1
+kind: Event
+metadata:
+  name: terminal-hi-event
+  labels:
+    division: terminal
+spec:
+  selector: # eventbinding selector
+    matchLabels:
+      division: terminal
+  type: message
+  messages:
+  - type: text
+    fuzzy: false
+    keywords:
+    - Hi
+    - Hello
+    reply: "Hello~ agent!!"

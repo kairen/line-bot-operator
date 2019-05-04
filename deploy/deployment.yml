@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bot-operator
+  namespace: bot-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: bot-operator
+  template:
+    metadata:
+      labels:
+        k8s-app: bot-operator
+    spec:
+      priorityClassName: system-cluster-critical
+      tolerations:
+      - key: CriticalAddonsOnly
+        operator: Exists
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+      serviceAccountName: bot-operator
+      containers:
+      - name: bot-operator
+        image: kubedev/line-bot-operator:v0.1.0
+        args:
+        - --logtostderr=true
+        - --v=2
