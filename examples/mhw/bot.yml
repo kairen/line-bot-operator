@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: hunter-aibo-channel
+type: Opaque
+data:
+  channelID: MTU1O1351TA2NQ==
+  channelSecret: MzkzNjd1513ZiYTgxYWJlYWJmNDNjNTFkMjFmZmIwMjM=
+  channelToken: Qy9aZmp5131FiU3duN3JWbTl6TXBxcjNPZDNpMkI3TjcwaEl4R0hxNVVwZEpJUmV6ZTdvaVNVM3pPNDFBZTlxTjhrVnVaSHN0czFrQkJ6dFNDNEo5c1cxSXhxcnc2c252OUl4WkJCWVNSb1JNc2RnVTZEVWlwcGhMQ1l3blJPRjRlalBhU1Q0TjlRdS83ZG8rM0cvenZ3ZEIwNHQ4OS8xTy93MWNEbnlpbEZVPQ==
+  ngrokToken: M3ByQmk3RUg051351wODN2bWNaNWg0XzVjQ3paS05ScTd3VFFLcG1ZMnRaNw==
+---
+apiVersion: line.you/v1alpha1
+kind: Bot
+metadata:
+  name: hunter-aibo
+spec:
+  logLevel: 3
+  expose:
+    type: Ngrok
+  channelSecretName: hunter-aibo-channel
+  version: v0.1.0
+  selector: # eventbinding selector
+    matchLabels:
+      hunter: monster

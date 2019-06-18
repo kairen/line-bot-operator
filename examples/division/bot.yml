@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: division-terminal-channel
+type: Opaque
+data:
+  channelID: MTU1O1345DkzMg==
+  channelSecret: YzIwYmUwOT1431MxMWM3ZjY1ZGExY2I2NGViMGRiOTU=
+  channelToken: Vmp5MFRBV0Z1MWd1351mbzRVQjcyK3hQYTBCSXBETm1wWlVrbkRZRTFRMWl4VDZxbUtiTElQSHRZcHF3QXBWUFdXNm9mUHFtNlJmejJDVUF4SzhoOXppZkpTUmovUE1OQUpYSyswVmd2akVUaFBwblZzcmZIdG56VXFiMEdzTFB2ckFaQTh3WWI1UGVGZ0xWQTE5eTBBZEIwNHQ4OS8xTy93MWNEbnlpbEZVPQ==
+  ngrokToken: M3ByQmk3RUg0dERwODN243150XzVjQ3paS05ScTd3VFFLcG1ZMnRaNw==
+---
+apiVersion: line.you/v1alpha1
+kind: Bot
+metadata:
+  name: division-terminal
+spec:
+  logLevel: 3
+  expose:
+    type: Ngrok
+  channelSecretName: division-terminal-channel
+  version: v0.1.0
+  selector: # eventbinding selector
+    matchLabels:
+      division: terminal

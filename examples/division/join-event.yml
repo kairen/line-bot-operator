@@ -1,0 +1,14 @@
+apiVersion: line.you/v1alpha1
+kind: Event
+metadata:
+  name: terminal-join-event
+  labels:
+    division: terminal
+spec:
+  selector: # eventbinding selector
+    matchLabels:
+      division: terminal
+  type: join
+  messages:
+  - type: text
+    reply: "Welcome to mobile terminal!!"

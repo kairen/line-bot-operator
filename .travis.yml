@@ -1,0 +1,23 @@
+language: go
+os: linux
+sudo: required
+services:
+- docker
+go:
+- 1.11.x
+go_import_path: github.com/kairen/line-bot-operator
+before_install:
+- go get -u github.com/golang/dep/cmd/dep
+script:
+- make dep
+- make test
+- make
+after_success:
+- bash <(curl -s https://codecov.io/bash)
+- |
+  if [[ "$TRAVIS_BRANCH" =~ release-* ]]; then
+    # Log into Docker Hub.
+    docker login -u="$DOCKER_USER" -p="$DOCKER_PASSWORD"
+    make build_image
+    make push_image
+  fi

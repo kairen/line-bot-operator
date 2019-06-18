@@ -1,0 +1,14 @@
+apiVersion: line.you/v1alpha1
+kind: Event
+metadata:
+  name: follow-event
+  labels:
+    hunter: monster
+spec:
+  selector: # eventbinding selector
+    matchLabels:
+      hunter: monster
+  type: follow
+  messages:
+  - type: text
+    reply: "Thank you following me!!!"

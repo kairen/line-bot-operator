@@ -1,0 +1,26 @@
+apiVersion: line.you/v1alpha1
+kind: Event
+metadata:
+  name: diablos-monster-event
+  labels:
+    hunter: monster
+spec:
+  selector: # eventbinding selector
+    matchLabels:
+      hunter: monster
+  type: message
+  messages:
+  - type: text
+    fuzzy: false
+    keywords:
+    - 角龍
+    - Diablos
+    reply: |
+      潛入地底就難以處理，用巨大聲響引出地面會是有效的手段。巨角突進攻擊擁有驚人破壞力，但只要誘導向蟻塚，就能反過來利用這破壞力製造破綻。
+      
+      [斬]腹>頭・翼
+      [打]腹>頭
+      [彈]翼>頭・腹
+      [弱點屬性]火x 水○ 雷△ 冰◎ 龍○
+
+      P.S. ◎＞○＞△＞×＞無効，斬/打/彈的弱點以左邊為最有效

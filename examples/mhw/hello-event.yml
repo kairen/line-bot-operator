@@ -1,0 +1,54 @@
+apiVersion: line.you/v1alpha1
+kind: Event
+metadata:
+  name: hello-event1
+  labels:
+    hunter: monster
+spec:
+  selector:
+    matchLabels:
+      hunter: monster
+  type: message
+  messages:
+  - type: text
+    fuzzy: false
+    keywords:
+    - Hello
+    reply: "Hello~ Meow~"
+---
+apiVersion: line.you/v1alpha1
+kind: Event
+metadata:
+  name: hello-event2
+  labels:
+    hunter: monster
+spec:
+  selector:
+    matchLabels:
+      hunter: monster
+  type: message
+  messages:
+  - type: text
+    fuzzy: false
+    keywords:
+    - Hi
+    reply: "Hi~ Meow~ "
+---
+apiVersion: line.you/v1alpha1
+kind: Event
+metadata:
+  name: hello-event3
+  labels:
+    hunter: monster
+spec:
+  selector:
+    matchLabels:
+      hunter: monster
+  type: message
+  messages:
+  - type: text
+    fuzzy: false
+    keywords:
+    - 你好
+    reply: "你好~ Meow~"
+      
